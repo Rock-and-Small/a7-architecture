@@ -4,8 +4,15 @@
     "rootDir": ".",
     "baseUrl": "./",
     "paths": {
-      "$utils/*": ["src/utils/*"]
+      "$digerati/*": [
+        "src/digerati/*"
+      ],
+      "$a7architecture/*": [
+        "src/a7architecture/*"
+      ],
     },
-    "types": ["@finsweet/ts-utils"]
+    "types": [
+      "@finsweet/ts-utils"
+    ]
   }
 }

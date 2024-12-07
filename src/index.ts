@@ -1,7 +1,10 @@
-import { greetUser } from '$utils/greet';
+import { skipToMainContent } from "$digerati/skipToMainContent";
+import { currentYear } from "$digerati/currentYear";
+import { teamMemberModal } from "$a7architecture/teamMemberModal";
 
-window.Webflow ||= [];
+window.Webflow || [];
 window.Webflow.push(() => {
-  const name = 'John Doe';
-  greetUser(name);
+  skipToMainContent();
+  currentYear();
+  teamMemberModal();
 });
