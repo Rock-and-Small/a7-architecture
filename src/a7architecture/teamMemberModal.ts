@@ -32,8 +32,8 @@ export const teamMemberModal = () => {
             modal.querySelector(['[dd-modal="image"]']).src = teamMember.querySelector('[dd-tm="image"]').src;
             modal.querySelector(['[dd-modal="email"]']).href = teamMember.querySelector('[dd-tm="email"]').href;
             modal.querySelector(['[dd-modal="biography"]']).innerHTML = teamMember.querySelector('[dd-tm="biography"]').innerHTML;
-            modal.querySelector(['[dd-modal="favourite-season"]']).innerHTML = teamMember.querySelector('[dd-tm="favourite-season"]').innerHTML;
-            // modal.classList.remove('hide');
+            modal.querySelector(['[dd-modal="fact-question"]']).innerHTML = teamMember.querySelector('[dd-tm="fact-question"]').innerHTML;
+            modal.querySelector(['[dd-modal="fact-answer"]']).innerHTML = teamMember.querySelector('[dd-tm="fact-answer"]').innerHTML;
         }, { passive: true });
     });
 };
