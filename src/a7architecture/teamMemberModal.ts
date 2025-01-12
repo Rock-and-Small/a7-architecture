@@ -9,17 +9,10 @@
  */
 export const teamMemberModal = () => {
     const showModalLinks = document.querySelectorAll('[dd-modal="show"]'),
-        hideModalLinks = document.querySelectorAll('[dd-modal="hide"]'),
         modal = document.querySelector('[dd-modal="modal"]');
-    if (!showModalLinks || !hideModalLinks || !modal) {
+    if (!showModalLinks || !modal) {
         return;
     }
-    hideModalLinks.forEach((hideModalLink) => {
-        hideModalLink.addEventListener('click', () => {
-            // console.log('Close click');
-            // modal.classList.add('hide');
-        });
-    });
     showModalLinks.forEach((showModalLink) => {
         showModalLink.addEventListener('click', () => {
             let teamMember = showModalLink;
