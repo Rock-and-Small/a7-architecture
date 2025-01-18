@@ -1,15 +1,12 @@
 /**
  * Equal Height Setter.
- * 
  * Adjusts the height of all slides with [dd-same-height="slide"] to match the tallest slide.
  */
 export const setEqualHeight = () => {
-    const selector = '[dd-equal="height"]';
+    const selector = '[dd-same-height="slide"]';
 
-    // Define the function to calculate and set equal heights
     const adjustHeights = () => {
         const slides = document.querySelectorAll<HTMLElement>(selector);
-        console.log(slides);
         let maxHeight = 0;
 
         // Reset all slides to their natural height before calculating the tallest slide
@@ -28,9 +25,30 @@ export const setEqualHeight = () => {
         console.log(`Adjusted slide heights to ${maxHeight}px`);
     };
 
-    // Run the adjustment function initially
     adjustHeights();
-
-    // Re-calculate heights on window resize
     window.addEventListener('resize', adjustHeights);
 };
+
+// Wait for the fs-cmsslider-element list to become empty before executing setEqualHeight
+const targetSelector = '[fs-cmsslider-element="list"]';
+const targetNode = document.querySelector(targetSelector);
+
+if (targetNode) {
+    // Configure the observer to watch for changes in the children of the target element
+    const config = { childList: true };
+
+    const observerCallback = (mutationsList, observer) => {
+        // Check if the target element is empty
+        if (targetNode.children.length === 0) {
+            console.log(`${targetSelector} is empty. Executing setEqualHeight.`);
+            setEqualHeight();
+            observer.disconnect(); // Stop observing once condition is met
+        }
+    };
+
+    // Create and start the observer
+    const observer = new MutationObserver(observerCallback);
+    observer.observe(targetNode, config);
+} else {
+    console.warn(`Element with selector ${targetSelector} not found.`);
+}
