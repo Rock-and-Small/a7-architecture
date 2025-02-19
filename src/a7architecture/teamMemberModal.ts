@@ -31,6 +31,7 @@ export const teamMemberModal = () => {
             let emailElement = modal.querySelector(['[dd-modal="email"]']);
             if (!emailAddress.includes('#')) {
                 emailElement?.classList.remove('hide');
+                emailElement.href = emailAddress;
             } else {
                 emailElement?.classList.add('hide');
             }
